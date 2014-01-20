@@ -207,7 +207,9 @@ COMPILERS = {
 # And then do a backup, or run `nikola ping` from the `ping`
 # plugin (`nikola install_plugin ping`).
 # To do manual deployment, set it to []
-DEPLOY_COMMANDS = ["git subtree push --prefix output/ origin gh-pages"]
+DEPLOY_COMMANDS = ["nikola build",
+                   "git commit -am 'Built pages'",
+                   "git subtree push --prefix output/ origin gh-pages"]
 
 # Where the output site should be located
 # If you don't use an absolute path, it will be considered as relative
@@ -349,7 +351,7 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # depends on what comment system you use. The default is
 # "nikolademo" which is a test account for Disqus. More information
 # is in the manual.
-COMMENT_SYSTEM_ID = "davclark"
+COMMENT_SYSTEM_ID = "askdav"
 
 # Enable annotations using annotateit.org?
 # If set to False, you can still enable them for individual posts and pages
