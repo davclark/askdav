@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ask Dav (about)</title><link>http://askdav.com/</link><description></description><atom:link href="http://askdav.com/categories/about.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 20 Jan 2014 12:17:43 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>About This Site</title><link>http://askdav.com/posts/about-this-site.html</link><description>&lt;h3&gt;What's this about?&lt;/h3&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ask Dav (about)</title><link>http://askdav.com/</link><description></description><atom:link href="http://askdav.com/categories/about.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 20 Jan 2014 13:49:24 GMT</lastBuildDate><generator>nikola</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>About This Site</title><link>http://askdav.com/posts/about-this-site.html</link><description>&lt;div&gt;&lt;h3&gt;What's this about?&lt;/h3&gt;
 &lt;p&gt;This post is largely my own "kicking the tires" on
 &lt;a href="http://getnikola.com"&gt;Nikola&lt;/a&gt;. The important information from this post should
 make its way to an about page or a sidebar.&lt;/p&gt;
@@ -12,48 +12,4 @@ Social Good Fellows Program&lt;/a&gt;. I'm also interested in the role of
 personal development, ranging from education to "mindful practice" (like
 meditation, taiji, the Feldenkrais Method®, and Contact Improv).&lt;/p&gt;
 &lt;p&gt;This design of this site is meant to support &amp;amp; cross-reference that work!&lt;/p&gt;
-&lt;h3&gt;Why Nikola? (And what's my recipe?)&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://getnikola.com"&gt;Nikola&lt;/a&gt; and &lt;a href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; are the
-heavy contenders in python static site generation. Both currently support
-IPython notebooks as sources for rendered pages, which is rad. Pelican requires
-the use of one of
-&lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/liquid_tags"&gt;two&lt;/a&gt;
-&lt;a href="https://github.com/danielfrg/pelican-ipythonnb"&gt;plugins&lt;/a&gt;, and while there is a
-plugin on GitHub for Nikola, the current version has been moved into the core
-(and the author &lt;a href="https://github.com/getnikola/nikola/issues/824"&gt;intends to keep it
-there&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;I'm interested in seeing how far we can abuse the static approach to avoid
-reliance on application servers.  As such, the availability of
-&lt;a href="http://www.makotemplates.org/"&gt;Mako&lt;/a&gt; in Nikola gives me the full power of
-Python right there in my templates, and doesn't require me to learn much
-about Nikola's build process to do so (except that I know my Mako templates will
-run).&lt;/p&gt;
-&lt;h4&gt;The recipe&lt;/h4&gt;
-&lt;p&gt;I'm still up in the air about using &lt;a href="http://continuum.io/downloads"&gt;Anaconda&lt;/a&gt;
-for stuff like this (instead of a virtualenv), but that's what I did. In case
-you're wondering, "Problems with Anaconda" (which are obviously not
-deal-breakers!) include:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;the fact that it does not automatically install pip in a new environment, as
-    virtualenv does, which leads to confusion when installing packages,&lt;/li&gt;
-&lt;li&gt;the fact that if you do things the simple way (i.e., just give conda a list
-    of packages you want), it won't necessarily do the smart thing anyway and
-    get the binary versions, and&lt;/li&gt;
-&lt;li&gt;to my knowledge the free edition doesn't compile numerics against
-    Accelerate.framework (or OpenBLAS) on OS X (not a big issue if you're an
-    academic / can afford the confusingly named continuum Accelerate package
-    that includes MKL). This last point shouldn't matter much at all here!&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Anaconda, contrary to popular conceptions, works out of the box without
-registration, and is &lt;a href="http://continuum.io/blog/anaconda-1-4-released"&gt;freely redistributable since version
-1.4&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Since I use Anaconda alot, I was actually able to mostly guess correctly which
-dependencies are available in anaconda, so the way I set up my environment is
-like so:&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;askdav&lt;/span&gt; &lt;span class="n"&gt;ipython&lt;/span&gt; &lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;markdown&lt;/span&gt; &lt;span class="n"&gt;pillow&lt;/span&gt; &lt;span class="n"&gt;pygments&lt;/span&gt; &lt;span class="n"&gt;docutils&lt;/span&gt; &lt;span class="n"&gt;lxml&lt;/span&gt; &lt;span class="n"&gt;pytz&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;After that, you should be GTG with a simple &lt;code&gt;conda install nikola&lt;/code&gt;. Recent
-versions of &lt;code&gt;conda&lt;/code&gt; will automatically invoke &lt;code&gt;pip&lt;/code&gt; if the binary package is
-unavailable.&lt;/p&gt;</description><category>about</category><guid>http://askdav.com/posts/about-this-site.html</guid><pubDate>Mon, 20 Jan 2014 06:06:08 GMT</pubDate></item></channel></rss>
+&lt;p class="more"&gt;&lt;a href="http://askdav.com/posts/about-this-site.html"&gt;Read more…&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>about</category><guid>http://askdav.com/posts/about-this-site.html</guid><pubDate>Mon, 20 Jan 2014 06:06:08 GMT</pubDate></item></channel></rss>
