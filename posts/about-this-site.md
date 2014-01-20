@@ -25,6 +25,8 @@ meditation, taiji, the Feldenkrais Method®, and Contact Improv).
 
 This design of this site is meant to support & cross-reference that work!
 
+<!-- TEASER_END -->
+
 ## Why Nikola? (And what's my recipe?)
 
 [Nikola](http://getnikola.com) and [Pelican](http://blog.getpelican.com) are the
