@@ -6,16 +6,16 @@ import time
 # Configuration, please edit
 
 # Data about this site
-BLOG_AUTHOR = "Your Name"
-BLOG_TITLE = "Demo Site"
+BLOG_AUTHOR = "@davclark"
+BLOG_TITLE = "Ask Dav"
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://getnikola.com/"
+SITE_URL = "http://askdav.com/"
 # This is the URL where nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://getnikola.com/"
-BLOG_EMAIL = "joe@demo.site"
-BLOG_DESCRIPTION = "This is a demo site for Nikola."
+BLOG_EMAIL = "davclark@berkeley.edu"
+BLOG_DESCRIPTION = "Movement. Science. Climate. Data."
 
 # Nikola is multilingual!
 #
@@ -106,10 +106,12 @@ NAVIGATION_LINKS = {
 #
 
 POSTS = (
+    ("posts/*.md", "posts", "post.tmpl"),
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
 )
 PAGES = (
+    ("stories/*.md", "stories", "story.tmpl"),
     ("stories/*.rst", "stories", "story.tmpl"),
     ("stories/*.txt", "stories", "story.tmpl"),
 )
@@ -599,8 +601,8 @@ CONTENT_FOOTER = CONTENT_FOOTER.format(email=BLOG_EMAIL,
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 # Also, if you want to use a different timezone in some of your posts,
 # you can use W3C-DTF Format (ex. 2012-03-30T23:00:00+02:00)
-#
-# TIMEZONE = 'Europe/Zurich'
+
+TIMEZONE = 'America/Los_Angeles'
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
 # USE_BUNDLES = True
