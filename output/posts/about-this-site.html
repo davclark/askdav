@@ -23,6 +23,9 @@
 
 
 
+        
+    <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
     
 </head>
 <body>
@@ -203,6 +206,18 @@ unavailable.</p>
 
     <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
     
+        
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="http://assets.annotateit.org/annotator/v1.2.7/annotator-full.js"></script>
+    <script>
+    jQuery(function ($) {
+        $('body').annotator().annotator('setupPlugins', {}, {
+            // Disable filter bar
+            Filter: false
+        });
+    });
+    </script>
+
 
 </body>
 </html>
