@@ -209,6 +209,7 @@ COMPILERS = {
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = ["nikola build",
                    "git commit -am 'Built pages'",
+                   "git push",
                    "git subtree push --prefix output/ origin gh-pages"]
 
 # Where the output site should be located
