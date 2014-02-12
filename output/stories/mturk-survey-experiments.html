@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A guide for running survey experiments on MTurk, like I did in my thesis">
+    <meta name="author" content="@davclark">
+    <title>MTurk Survey Experiments | Ask Dav</title>
+    
+            <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+
+    
+
+
+
+        
+    <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.2.5/annotator.min.css">
+
+    
+</head>
+<body>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">Ask Dav</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            
+                <li><a href="../archive.html">Archives</a>
+                </li><li><a href="../categories/index.html">Tags</a>
+                </li><li><a href="../rss.xml">RSS</a>
+
+        </li></ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            
+            
+                
+    <li>
+    <a href="mturk-survey-experiments.md" id="sourcelink">Source</a>
+    </li>
+
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+    <h1>MTurk Survey Experiments</h1>
+    <p>This is a work in progress for helping my fellow researchers run survey
+experiments while avoiding some pitfalls.</p>
+<h2>Template for HTML to use for your HIT on Amazon</h2>
+<p>I got the kernel for this from another social scientists blog, and I'd like to
+attribute it. I just haven't had time to track it down!</p>
+<div class="code"><pre><span class="c">&lt;!-- &lt;p id='workerId'&gt;No javascript run&lt;/p&gt; --&gt;</span>
+<span class="nt">&lt;style</span> <span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span><span class="c">&lt;!--</span>
+<span class="c">.highlight-box {</span>
+<span class="c">  border:solid 0px #98BE10;</span>
+<span class="c">  background:#FCF9CE;</span>
+<span class="c">  color:#222222;</span>
+<span class="c">  padding:4px;</span>
+<span class="c">  text-align:left;</span>
+<span class="c">  font-size: smaller;</span>
+<span class="c">}</span>
+<span class="c">#beforeAccept { display:block }</span>
+<span class="c">#workerNotFound { display:none}</span>
+<span class="c">#workerFound { display:none }</span>
+<span class="cp">[</span><span class="k">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="cp">]</span><span class="c"> { visibility:hidden }</span>
+<span class="c">--&gt;</span><span class="nt">&lt;/style&gt;</span>
+
+<span class="c">&lt;!-- Google CDN is fast, but to avoid errors, we need to switch to amazon hosted --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"</span>
+    <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="c">&lt;!-- This is the recommended approach from crypto-js website --&gt;</span>
+<span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">"https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"</span>
+    <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span><span class="c">&lt;!--</span>
+<span class="c">function getParamFromURL(name) {</span>
+<span class="c">    // This was in the original code, not necessary</span>
+<span class="c">    // name = name.replace(/</span><span class="cp">[</span><span class="o">\</span><span class="err">[</span><span class="cp">]</span><span class="c">/,"\\</span><span class="cp">[</span><span class="s2">").replace(/[\]]/,"</span><span class="o">\\</span><span class="cp">]</span><span class="c">");</span>
+
+<span class="c">    // MTurk screws up and (at least sometimes) puts &amp; instead of &amp; in the URL!</span>
+<span class="c">    // Regexps are char based, so we need only check for a ; prior to our</span>
+<span class="c">    // name. If we want to test for the whole &amp; token, we need to work</span>
+<span class="c">    // outside of </span><span class="cp">[]</span><span class="c">'s and use |</span>
+<span class="c">    var regexS = "</span><span class="cp">[</span><span class="o">\?&amp;</span><span class="p">;</span><span class="cp">]</span><span class="c">" + name + "=(</span><span class="cp">[</span><span class="p">^</span><span class="o">&amp;</span><span class="err">#</span><span class="cp">]</span><span class="c">*)";</span>
+<span class="c">    var regex = new RegExp(regexS);</span>
+<span class="c">    var results = regex.exec( window.location.href );</span>
+<span class="c">    if( results === null )</span>
+<span class="c">        return "";</span>
+<span class="c">    else</span>
+<span class="c">        return results</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="c">;</span>
+<span class="c">}</span>
+
+<span class="c">// This is hashed to protect workers privacy (though the risk here is low)</span>
+<span class="c">// I don't care much about my privacy on the first line, compared to</span>
+<span class="c">// debugging, though!</span>
+<span class="c">// When done right, these should look like '942cf38dce8bcd7310476ae53fe5a906170c7d2d'</span>
+
+<span class="c">var hashed_workers = </span><span class="cp">[</span><span class="nx">CryptoJS.SHA1</span><span class="p">(</span><span class="s2">"A2DLTP7A10KG4T"</span><span class="p">)</span><span class="bp">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">CryptoJS.enc.Hex</span><span class="p">),</span>
+                     <span class="cp">]</span><span class="c">;</span>
+
+<span class="c">$(window).load(function() {</span>
+<span class="c">    // We now have an initial state where visibility is set in CSS</span>
+<span class="c">    var workerId = getParamFromURL('workerId');</span>
+
+<span class="c">    // This is for debugging, along with the commented span at the top</span>
+<span class="c">    // $("#workerId").text('Javascript detected worker ID "' + workerId + '"')</span>
+
+<span class="c">    if (workerId != "") {</span>
+<span class="c">        // Can't use inArray on full CryptoJS hash objects</span>
+<span class="c">        var hashedId = CryptoJS.SHA1(workerId).toString(CryptoJS.enc.Hex);</span>
+
+<span class="c">        // Is the (hashed) ID in our list of (hashed) IDs?</span>
+<span class="c">        if (jQuery.inArray(hashedId, hashed_workers) &gt; -1){</span>
+<span class="c">            // Worker was found</span>
+<span class="c">            $("#beforeAccept").css('display','none');</span>
+<span class="c">            $("#workerFound").css('display','block');</span>
+<span class="c">        }</span>
+<span class="c">        else {</span>
+<span class="c">            // Worker was not found</span>
+<span class="c">            var link_elt = $('#surveyLink');</span>
+
+<span class="c">            link_elt.prop('href', link_elt.prop('href') + '&amp;workerId=' + workerId);</span>
+<span class="c">            $("#workerNotFound").css('display','block');</span>
+<span class="c">            $("#beforeAccept").css('display','none');</span>
+<span class="c">            $("</span><span class="cp">[</span><span class="k">type</span><span class="o">=</span><span class="s1">'submit'</span><span class="cp">]</span><span class="c">").css('visibility','visible');</span>
+<span class="c">        }</span>
+<span class="c">    }</span>
+<span class="c">});</span>
+<span class="c">--&gt;</span><span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"beforeAccept"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;h3&gt;</span>Complete a short survey<span class="nt">&lt;/h3&gt;</span>
+
+ <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"highlight-box"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>We are conducting an educational research survey about political
+  attitudes and scientific knowledge. You are allowed 60 minutes, but it
+  will likely take you less than 30. You<span class="ni">&amp;#39;</span>ll also probably learn
+  something!<span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>If you accept this HIT, some javascript will run to see if you<span class="ni">&amp;#39;</span>re
+  elegible. If you<span class="ni">&amp;#39;</span>ve taken another one of our surveys, you are
+  ineligible for this one.<span class="nt">&lt;/p&gt;</span>
+ <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"workerNotFound"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Complete a short survey<span class="nt">&lt;/h3&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"highlight-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Follow the link below to complete the survey. At the end of the
+    survey, you will receive a code to paste into the box below to receive
+    credit for taking our survey. Please give the survey your full attention
+    (no web or e-mail).<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="c">&lt;!-- We have our base link here in case there's a snafu with updating the link --&gt;</span>
+
+  <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">href=</span><span class="s">"http://ucbpsych.qualtrics.com/SE/?SID=SV_0AFVoIpzwIbnDqR"</span> <span class="na">id=</span><span class="s">"surveyLink"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Survey link<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;</span>Provide the survey code here (or leave me a note if there<span class="ni">&amp;#39;</span>s any problem):<span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;p&gt;&lt;input</span> <span class="na">id=</span><span class="s">"Code"</span> <span class="na">name=</span><span class="s">"Code"</span> <span class="na">size=</span><span class="s">"10"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"workerFound"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Sorry<span class="nt">&lt;/h3&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"highlight-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>You<span class="ni">&amp;#39;</span>ve done work on another one of our surveys. So, thanks for
+    your interest, but please release the HIT!<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:davclark@berkeley.edu">@davclark</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+            <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../assets/js/jquery.colorbox-min.js" type="text/javascript"></script>
+
+
+	
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul><li><a class="addthis_button_facebook"></a>
+</li><li><a class="addthis_button_google_plusone_share"></a>
+</li><li><a class="addthis_button_linkedin"></a>
+</li><li><a class="addthis_button_twitter"></a>
+</li></ul>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+        
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+    <script src="http://assets.annotateit.org/annotator/v1.2.7/annotator-full.js"></script>
+    <script>
+    jQuery(function ($) {
+        $('body').annotator().annotator('setupPlugins', {}, {
+            // Disable filter bar
+            Filter: false
+        });
+    });
+    </script>
+
+
+</body>
+</html>
