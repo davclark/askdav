@@ -1,0 +1,3 @@
+[submodule "nikola"]
+	path = nikola
+	url = git://github.com/getnikola/nikola.git
