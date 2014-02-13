@@ -444,7 +444,7 @@ ANNOTATIONS = True
 # What MarkDown extensions to enable?
 # You will also get gist, nikola and podcast because those are
 # done in the code, hope you don't mind ;-)
-# MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
+MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite']
 
 # Social buttons. This is sample code for AddThis (which was the default for a
 # long time). Insert anything you want here, or even make it empty.
@@ -609,7 +609,7 @@ ANNOTATIONS = True
 TIMEZONE = 'America/Los_Angeles'
 
 # If webassets is installed, bundle JS and CSS to make site loading faster
-# USE_BUNDLES = True
+USE_BUNDLES = False
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
