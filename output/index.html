@@ -27,30 +27,32 @@
 <!-- Menubar -->
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="http://askdav.com/">Ask Dav</a>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            
+    <div class="container-fluid"><!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://askdav.com/">Ask Dav</a>
+        </div><!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
                 <li><a href="archive.html">Archives</a>
                 </li><li><a href="categories/index.html">Tags</a>
                 </li><li><a href="rss.xml">RSS</a>
 
-        </li></ul>
+            </li></ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            
-            
+            <ul class="nav navbar-nav navbar-right">
                 
-        </ul>
-    </div><!-- /.navbar-collapse -->
+                
+                    
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 
 <!-- End of Menubar -->
@@ -71,7 +73,7 @@
         </small></h1>
         <hr>
         <div class="e-content">
-        <div><h4>What's this about?</h4>
+        <div><h3>What's this about?</h3>
 <p>This post is largely my own "kicking the tires" on
 <a href="http://getnikola.com">Nikola</a>. The important information from this post should
 make its way to an about page or a sidebar.</p>
@@ -86,7 +88,7 @@ meditation, taiji, the Feldenkrais Method®, and Contact Improv).</p>
 <p>This design of this site is meant to support &amp; cross-reference that work!</p>
 <!-- TEASER_END -->
 
-<h4>Why Nikola? (And what's my recipe?)</h4>
+<h3>Why Nikola? (And what's my recipe?)</h3>
 <p><a href="http://getnikola.com">Nikola</a> and <a href="http://blog.getpelican.com">Pelican</a> are the
 heavy contenders in python static site generation. Both currently support
 IPython notebooks as sources for rendered pages, which is rad. Pelican requires
@@ -102,7 +104,7 @@ reliance on application servers.  As such, the availability of
 Python right there in my templates, and doesn't require me to learn much
 about Nikola's build process to do so (except that I know my Mako templates will
 run).</p>
-<h5>The recipe</h5>
+<h4>The recipe</h4>
 <p>I'm still up in the air about using <a href="http://continuum.io/downloads">Anaconda</a>
 for stuff like this (instead of a virtualenv), but that's what I did. In case
 you're wondering, "Problems with Anaconda" (which are obviously not
