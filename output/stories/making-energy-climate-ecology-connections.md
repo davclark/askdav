@@ -2,7 +2,7 @@
 .. title: Making Energy-Climate-Ecology Connections
 .. slug: making-energy-climate-ecology-connections
 .. date: 2014/02/14 16:45:14
-.. tags: draft
+.. tags:
 .. link: 
 .. description: 
 .. type: text
