@@ -208,6 +208,7 @@ COMPILERS = {
 # plugin (`nikola install_plugin ping`).
 # To do manual deployment, set it to []
 DEPLOY_COMMANDS = ["nikola build",
+                   "git add output",
                    "git commit -am 'Built pages'",
                    "git push",
                    "git subtree push --prefix output/ origin gh-pages"]
