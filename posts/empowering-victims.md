@@ -2,7 +2,7 @@
 .. title: Empowering Victims
 .. slug: empowering-victims
 .. date: 2014/03/14 20:16:04
-.. tags: draft
+.. tags: dance,equity
 .. link: 
 .. description: 
 .. type: text
