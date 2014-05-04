@@ -73,9 +73,32 @@
         <!--Body content-->
 
         <div class="row">
-            <!-- DJC Having a row without further structure inside appears to screw up
-            gutters. So, I put this default full-width column here. -->
-            <div class="col-lg-12">
+            <!-- NOTE: Having a row without further structure inside appears to
+            screw up gutters. So, any site will want some extra structure here.
+            -->
+            <!-- We put this on top on small screens, but on the right on wide
+            screend -->
+            <div class="col-md-4 col-md-push-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Dav's Projects</h2>
+                    </div>
+                    <div class="panel-body">
+                        <!-- I want to make this generated from markdown! -->
+                        <ul>
+                            <li><a href="http://dlab-berkeley.github.io/dlab-methods">
+                            D-Lab Methods</a>
+                            </li><li><a href="http://statsforchange.org">Stats for
+                            Change</a>
+                            </li><li><a href="http://collaboratool.berkeley.edu">BCE
+                            - Berkeley's standard environment for research and
+                              teaching</a>
+                        </li></ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-8 col-md-pull-4">
                 
     <article class="postbox post-text">
     <div class="h-entry" itemscope="itemscope" itemtype="http://schema.org/Article">
