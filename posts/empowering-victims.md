@@ -31,6 +31,8 @@ dancing contact. if you're dancing chemistry, you're doing something else.” Bu
 this debate is an aspirational one at best -- any interaction between two human
 bodies will involve both physics and the emotional stuff that comes up.
 
+<!-- TEASER_END -->
+
 If you know me, it's likely no surprise that my initial experience of Contact
 *was* pretty much "dancing physics" -- I *get* this attitude, and I think this
 physics-oriented attitude is a great place to focus on developing the skills you
