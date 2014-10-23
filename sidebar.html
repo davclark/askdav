@@ -1,0 +1,44 @@
+### This stuff should go in 
+### ${template_hooks['page_header']()}
+
+<!-- We put this on top on small screens, but on the right on wide
+screend -->
+<div class="col-md-4 col-md-push-8">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <!-- For some reason, Nikola's theme appears to have
+            messed up the following h2 tag -->
+            <!--h2 class="panel-title"-->Dav's Projects
+
+        </div>
+        <div class="panel-body">
+            <!-- I want to make this generated from markdown! -->
+            <ul>
+                <li><a
+                href="http://dlab-berkeley.github.io/dlab-methods">
+                D-Lab Methods</a>
+                <li><a href="http://statsforchange.org">Stats for
+                Change</a>
+                <li><a href="http://collaboratool.berkeley.edu">BCE
+                - Berkeley's standard environment for research and
+                  teaching</a>
+                <li><a href="https://osf.io/iwdru/">MTurk Admin - a
+                library to make longitudinal "crowdsourcing"
+                experiments easier</a>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="col-md-8 col-md-pull-4">
+    <%block name="content"></%block>
+</div>
+
+### We also want to wrap the following in a bootstrap div
+### I should be able to do this with the regular templating mechanism, ya?
+### <%block name="content"></%block>
+
+<div class="col-md-8 col-md-pull-4">
+    <%block name="content"></%block>
+</div>
+
