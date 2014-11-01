@@ -8,10 +8,12 @@
 .. type: text
 -->
 
+<img src="/donut.svg"
+     style="width: 200px; max-width: 100%; height: auto; float: right"
+     alt="A perception, a thought, an action...">
+
 Thanks for taking an interest in the materials I presented at ISCS 2014. I'm
 excited to collaborate with you!
-
-<!-- ![donut](/donut.svg "A perception, a thought, an action...") -->
 
 # The plan
 
