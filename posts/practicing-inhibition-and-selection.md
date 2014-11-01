@@ -18,9 +18,10 @@ excited to collaborate with you!
 # The plan
 
 I'll be producing a recorded intervention in the coming week or so, but I still
-need to square things aware with our IRB! In the meantime, please sign up on
-[the Open Science Framework (OSF) project](https://osf.io/btc5f/), or just email
-me at davclark@berkeley.edu to be kept in the loop.
+need to square things aware with our IRB! In the meantime, please leave a
+comment on [the Open Science Framework (OSF) project](https://osf.io/btc5f/)
+(you'll need an account), or just email me at davclark@berkeley.edu to be kept
+in the loop.
 
 <!-- TEASER_END -->
 
@@ -29,7 +30,7 @@ in Virginia to build a community platform for open, reproducible, collaborative
 science.
 
 You're also welcome to leave a comment below (note - that's only available on
-the full post view, you need to click on the title from the index).
+the full post view, after you click on the title from the index).
 
 # References
 
