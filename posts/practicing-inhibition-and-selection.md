@@ -11,7 +11,7 @@
 Thanks for taking an interest in the materials I presented at ISCS 2014. I'm
 excited to collaborate with you!
 
-<!-- ![donut](/donut.svg "A perception, a thought, an action...") -->
+![donut](/donut.svg "A perception, a thought, an action...")
 
 # The plan
 
