@@ -11,7 +11,7 @@
 Thanks for taking an interest in the materials I presented at ISCS 2014. I'm
 excited to collaborate with you!
 
-![donut](/donut.svg "A perception, a thought, an action...")
+<!-- ![donut](/donut.svg "A perception, a thought, an action...") -->
 
 # The plan
 
@@ -19,6 +19,8 @@ I'll be producing a recorded intervention in the coming week or so, but I still
 need to square things aware with our IRB! In the meantime, please sign up on
 [the Open Science Framework (OSF) project](https://osf.io/btc5f/), or just email
 me at davclark@berkeley.edu to be kept in the loop.
+
+<!-- TEASER_END -->
 
 If this is the first you've heard of the Open Science Framework, it's an effort
 in Virginia to build a community platform for open, reproducible, collaborative
