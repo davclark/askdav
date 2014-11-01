@@ -20,14 +20,15 @@ excited to collaborate with you!
 I'll be producing a recorded intervention in the coming week or so, but I still
 need to square things aware with our IRB! In the meantime, please leave a
 comment on [the Open Science Framework (OSF) project](https://osf.io/btc5f/)
-(you'll need an account), or just email me at davclark@berkeley.edu to be kept
-in the loop.
+(you'll need to make an account, then after you log in and visit my project,
+there'll be a blue speech bubble icon on the right), or just email me at
+davclark@berkeley.edu to be kept in the loop.
 
 <!-- TEASER_END -->
 
 If this is the first you've heard of the Open Science Framework, it's an effort
-in Virginia to build a community platform for open, reproducible, collaborative
-science.
+by the [Center for Open Science](http://centerforopenscience.org/) in Virginia
+to build a community platform for open, reproducible, collaborative science.
 
 You're also welcome to leave a comment below (note - that's only available on
 the full post view, after you click on the title from the index).
