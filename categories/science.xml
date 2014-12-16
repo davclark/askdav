@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ask Dav (science)</title><link>http://askdav.com/</link><description></description><language>en</language><lastBuildDate>Tue, 16 Dec 2014 14:02:46 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Open Science with R and Git</title><link>http://askdav.com/posts/bitss-r-and-git.html</link><dc:creator>@davclark</dc:creator><description>&lt;p&gt;Dav Clark will be presenting a short training at the &lt;a href="http://bitss.org"&gt;BITSS&lt;/a&gt;
-&lt;a href="http://bitss.org/annual-meeting/2012-2"&gt;Research Transparency Forum&lt;/a&gt; on using
-git and Rmarkdown with RStudio for an easy-to-understand open science workflow.
-Materials are available &lt;a href="https://github.com/dlab-berkeley/BITSS-Rstudio"&gt;on
-github&lt;/a&gt;. Pull requests welcome!&lt;/p&gt;</description><category>code</category><category>science</category><guid>http://askdav.com/posts/bitss-r-and-git.html</guid><pubDate>Thu, 11 Dec 2014 08:00:00 GMT</pubDate></item><item><title>Data Rights and Data Wrongs</title><link>http://askdav.com/posts/data-right-wrong.html</link><dc:creator>@davclark</dc:creator><description>&lt;p&gt;Dav Clark will be part of a panel on data ownership and responsibilities at the
-&lt;a href="http://icis.ucdavis.edu/?page_id=329"&gt;Data Rights and Data Wrongs&lt;/a&gt; workshop at
-&lt;a href="http://icis.ucdavis.edu"&gt;ICIS&lt;/a&gt; at UC Davis.&lt;/p&gt;</description><category>science</category><guid>http://askdav.com/posts/data-right-wrong.html</guid><pubDate>Wed, 10 Dec 2014 08:00:00 GMT</pubDate></item></channel></rss>
