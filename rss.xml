@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ask Dav</title><link>http://askdav.com/</link><description>Movement. Science. Climate. Data.</description><language>en</language><lastBuildDate>Sat, 01 Nov 2014 00:27:17 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Practicing Inhibition and Selection</title><link>http://askdav.com/posts/practicing-inhibition-and-selection.html</link><dc:creator>@davclark</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img src="http://askdav.com/donut.svg" style="width: 200px; max-width: 100%; height: auto; float: right" alt="A perception, a thought, an action..."&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Ask Dav</title><link>http://askdav.com/</link><description>Movement. Science. Climate. Data.</description><language>en</language><lastBuildDate>Tue, 16 Dec 2014 14:02:46 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Open Science with R and Git</title><link>http://askdav.com/posts/bitss-r-and-git.html</link><dc:creator>@davclark</dc:creator><description>&lt;p&gt;Dav Clark will be presenting a short training at the &lt;a href="http://bitss.org"&gt;BITSS&lt;/a&gt;
+&lt;a href="http://bitss.org/annual-meeting/2012-2"&gt;Research Transparency Forum&lt;/a&gt; on using
+git and Rmarkdown with RStudio for an easy-to-understand open science workflow.
+Materials are available &lt;a href="https://github.com/dlab-berkeley/BITSS-Rstudio"&gt;on
+github&lt;/a&gt;. Pull requests welcome!&lt;/p&gt;</description><category>code</category><category>science</category><guid>http://askdav.com/posts/bitss-r-and-git.html</guid><pubDate>Thu, 11 Dec 2014 08:00:00 GMT</pubDate></item><item><title>Data Rights and Data Wrongs</title><link>http://askdav.com/posts/data-right-wrong.html</link><dc:creator>@davclark</dc:creator><description>&lt;p&gt;Dav Clark will be part of a panel on data ownership and responsibilities at the
+&lt;a href="http://icis.ucdavis.edu/?page_id=329"&gt;Data Rights and Data Wrongs&lt;/a&gt; workshop at
+&lt;a href="http://icis.ucdavis.edu"&gt;ICIS&lt;/a&gt; at UC Davis.&lt;/p&gt;</description><category>science</category><guid>http://askdav.com/posts/data-right-wrong.html</guid><pubDate>Wed, 10 Dec 2014 08:00:00 GMT</pubDate></item><item><title>Practicing Inhibition and Selection</title><link>http://askdav.com/posts/practicing-inhibition-and-selection.html</link><dc:creator>@davclark</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img src="http://askdav.com/donut.svg" style="width: 200px; max-width: 100%; height: auto; float: right" alt="A perception, a thought, an action..."&gt;&lt;/p&gt;
 &lt;p&gt;Thanks for taking an interest in the materials I presented at ISCS 2014. I’m
 excited to collaborate with you!&lt;/p&gt;
 &lt;h2&gt;The plan&lt;/h2&gt;
@@ -31,8 +37,7 @@ dancing contact. if you’re dancing chemistry, you’re doing something else.�
 this debate is an aspirational one at best – any interaction between two human
 bodies will involve both physics and the emotional stuff that comes up.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://askdav.com/posts/empowering-victims.html"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>dance</category><category>equity</category><guid>http://askdav.com/posts/empowering-victims.html</guid><pubDate>Sat, 15 Mar 2014 03:16:04 GMT</pubDate></item><item><title>About This Site</title><link>http://askdav.com/posts/about-this-site.html</link><dc:creator>@davclark</dc:creator><description>&lt;div&gt;&lt;h3&gt;What’s this about?&lt;/h3&gt;
-&lt;p&gt;This post is largely my own “kicking the tires” on
-&lt;a href="http://getnikola.com"&gt;Nikola&lt;/a&gt;. The important information from this post should
+&lt;p&gt;This post is largely my own “kicking the tires” on&lt;a href="http://getnikola.com"&gt;Nikola&lt;/a&gt;. The important information from this post should
 make its way to an about page or a sidebar.&lt;/p&gt;
 &lt;p&gt;I currently work in the &lt;a href="http://dlab.berkeley.edu"&gt;D-Lab&lt;/a&gt;, with a strong focus
 on public-facing science. Notably, I’m working with &lt;a href="http://oroeco.com"&gt;Oroeco&lt;/a&gt;
