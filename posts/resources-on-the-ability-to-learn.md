@@ -8,6 +8,9 @@
 .. type: text
 -->
 
+**Note -- this post is currently a work-in-progress. Once it's stabilized, I'll
+remove this note.**
+
 Probably the most accessible overview at the level of the brain is "The Brain
 that Changes Itself" by Norman Doidge. It's really inspiring. But, I always
 caution people not to get seduced by the seemingly "scientific" nature of
