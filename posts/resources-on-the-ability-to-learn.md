@@ -40,11 +40,11 @@ description of some of the core features that I think are relative to "Grit"
 (though I still need to read up on that).
 
 In terms of my own work, the best, most accessible summary is not actually
-published, but it'll probably be published soon. (If not, there's other stuff I
-can point you to if you need a published reference.) But the basic idea is that
-you can indeed change people's minds about climate change with education (even
-though some say it's "culturally determined"). I've attached that - please don't
-share it too widely, though.
+published, so for now I must direct you to [my
+thesis](https://github.com/davclark/UCB_thesis/releases). (In the meantime,
+there's other stuff I can point you to if you need a published reference.) But
+the basic idea is that you can indeed change people's minds about climate change
+with education (even though some say it's "culturally determined").
 
 Lastly, I also love Ellen Langer's work (hmm... all female scientists). She has
 a very accessible book called "Mindfulness" that talks about changing people's
