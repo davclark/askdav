@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>1337 ch337 sh337</title>
+  <base href="http://scidav.org:8080/www.scidav.org/1337_ch337_sh337" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/1337_ch337_sh337">1337 ch337 sh337</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">1337 ch337 sh337</h2>
+
+
+<h4 class="heading">(pronounced: Elite Cheat Sheet)</h4>
+
+
+
+
+<p class="annotation">All of the following assume you're using <strong>my</strong> preferred toolstack, e.g. OSX, python, VI. If something doesn't seem to apply, it's probably because you're using a different tool!<br /></p>
+<p class="annotation"><strong>What version is this library?</strong> <br /></p>
+<p class="p">Probably something like</p>
+
+<pre class="pre">strings libhdf5.a | grep 'library version'
+</pre>
+
+                                         
+<p class="p">Other useful tools in this space are <em>otool</em>, <em>lipo</em> and <em>nm</em>.</p>
+<p class="annotation"><strong>How do I get OSX to stop checking because something was &quot;downloaded from the internet?&quot;</strong></p>
+
+<pre class="pre">xattr -d com.apple.quarantine &lt;file.app&gt;
+</pre>
+
+                                         
+<p class="p">Note that the above needs to be executed as root.<br /></p>
+<p class="annotation"> <strong>How do I do stuff in <a href="http://www.r-project.org" target="_self">R</a>?</strong></p>
+<p class="p">If you're a social science type like me, you might be interested in the following packages. Lots of times, you'll want to look at the <em>summary</em> of the results. Paul Gribble has published <a href="http://gribblelab.org/2009/03/09/repeated-measures-anova-using-r/" target="_self">a well-considered article on repeated-measures</a> designs in R. I recommend it!<br /></p>
+<dl class="dl" compact="compact">
+<dt>lme4 </dt>
+  <dd>Mixed effects models (including generalized linear models). The workhorse is the <em>lmer</em> function. You can compare these models with the standard <em>anova</em> function. </dd>
+<dt>multcomp </dt>
+  <dd>Multiple comparisons, done easy. It's hard to locate the various named tests you can use, but there's a list in the help for <em>contrMat</em>. Works great with lme4!<br /></dd>
+<dt>sciplot </dt>
+  <dd>If you don't like using <em>arrow</em>s to draw the error bars the editor is forcing you to include, even though they'll be misinterpreted. (Note: not actually 1337) </dd>
+<dt>lattice or ggplot</dt>
+  <dd>Way awesome for looking at lots of data in an orderly fashion. I use the former, mostly because ggplot wasn't mature when I started using R.<br /></dd>
+</dl>
+<p class="annotation"><strong>How do I edit video in obscure formats for free?</strong></p>
+<p class="p">After all these years, video formats are still a maze of proprietary this n' that. If you don't care about $30, just upgrade to QuickTime 7 Pro. Even if you have snow leopard, this will do things that QuickTime X doesn't do (as of Dec 2009).</p>
+<p class="p">But, if you are a cheapskate or an ideologue (or both), your best bet is probably mencoder (see the <a href="http://www.mplayerhq.hu/DOCS/HTML-single/en/MPlayer.html" target="_self">mencoder docs</a>). For example, I wanted to rotate a 3gp video taken with a blackberry 90 degrees counterclockwise (i.e. 3 * 90 deg. clockwise). Unfortunately, this video used the proprietary <em>samr</em> codec (so many other programs wouldn't read it). This did the trick:</p>
+
+<pre class="pre">./mencoder -vf rotate=3 -o new-video.avi -oac mp3lame -ovc lavc ../old-video.3gp
+</pre>
+
+                                         
+<p class="p">Note that mencoder will always output to AVI. I probably lost some fidelity in there too... but not enough that I care.</p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

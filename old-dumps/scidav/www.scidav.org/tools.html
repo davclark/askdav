@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Technology and Tools</title>
+  <base href="http://scidav.org:8080/www.scidav.org/tools" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/tools">Technology and Tools</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Technology and Tools</h2>
+<p class="p">Below is my current setup. It helps me, and maybe it'll help you too!<br /></p>
+
+<h3 class="heading">Data Collection, Management and Analysis</h3>
+
+
+
+
+
+
+
+<h4 class="heading">Software</h4>
+
+
+
+
+<p class="p">  There's directions on how to install everything for stimulus presentation with Python + VisionEgg <a href="http://www.scidav.org/installs" target="_self">here</a>. And some obscure things that took me at least 10 minutes to figure out are <a href="http://scidav.org:8080/www.scidav.org/1337_ch337_sh337" target="_self">here</a>.<br /><br /></p>
+<dl class="dl" compact="compact">
+<dt>OSX </dt>
+  <dd>Everybody's favorite UNIX vendor. Be sure you install the &quot;Command Line Tools for Xcode&quot; https://developer.apple.com/downloads (you can also install XCode proper, which is over 3GB compared to 116MB for the command line only install), that's how you get your C compiler. The process appears to have been made much more straightforward, thankfully.<br /></dd>
+<dt>Python </dt>
+  <dd>Numpy / Traits / Chaco / PyTables / VisionEgg (Pyglet?). Easiest way is with the <a href="http://www.enthought.com/products/epd.php" target="_self">Enthought Python Distribution</a>. </dd>
+<dt><a href="http://www.r-project.org" target="_self">R</a> </dt>
+  <dd>These guys are still the best place to get (optimized) gfortran  and Tcl/Tk on OSX (there's a link where you download the R Framework and GUI). <br /></dd>
+<dt>Vim</dt>
+  <dd>Really, you can do it! Get <a href="http://code.google.com/p/macvim/" target="_self">MacVim</a> (note - different from macvim.org, which is NOT what you want). It's awesome. Also, pester me to put up my vim config on github or something!<br /></dd>
+</dl>
+
+
+<h4 class="heading"></h4>
+
+
+
+
+
+
+<h4 class="heading">Books</h4>
+
+
+
+
+<p class="p">  Linear Algebra Done Right - Adler<br />Applied Mathematics - Strang<br />Machine Learning - Bishop<br /></p>
+
+
+<h4 class="heading">Hardware</h4>
+
+
+
+
+<dl class="dl" compact="compact">
+<dt>LabJack U3 </dt>
+  <dd>This is what I use </dd>
+<dt>Arduino / Atmel </dt>
+  <dd>Quite inexpensive and excellent open-source programmable microcontrollers with IO.<br /></dd>
+</dl>
+
+
+<h4 class="heading">Storing Data</h4>
+
+
+
+
+<dl class="dl" compact="compact">
+<dt>CSV </dt>
+  <dd>This is the best format for small tables. A good rule of thumb is, would it make sense to look at this in a spreadsheet? CSV is one of the oldest formats, and thus supported by nearly everything: <strong>any spreadsheet program</strong> (not the case for tab-delimited, for example - Apple's Numbers only reads CSV!); <strong>R </strong>- read.csv and write.csv; <strong>Python</strong> - use the <a href="http://docs.python.org/library/csv.html" target="_self">csv module</a>; they are <strong>human readable</strong> too! So you can use a text editor. </dd>
+<dt>HDF5</dt>
+  <dd>This is a very efficient binary file format that is good for storing any kind of data. But you lose the ability to read your data without special tools. <a href="http://www.pytables.org" target="_self">PyTables</a> in<strong> Python</strong> is awesome (but there are other more &quot;lightweight&quot; libraries as well), you can also do relatively primitive reads from <strong>R</strong> (you need to install the package from CRAN), and there are decent command-line and graphical tools (<a href="http://vitables.berlios.de/" target="_self">ViTables</a> is my choice - though it's a PITA to install, and there's also one in Java).</dd>
+<dt>YAML </dt>
+  <dd>This is a good text format when you have hierarchical rather than tabular data (like lists and dictionaries of lists and dictionaries of ... in python). It's similar to JSON, if that means anything to you, but with richer semantics (so it's really closer to XML semantics). Again, these files are easy to manipulate in <strong>Python</strong> using <a href="http://pyyaml.org/" target="_self">PyYAML</a>, and are also <strong>human readable</strong>.</dd>
+</dl>
+<p class="p"> Conspicuously absent are SQL databases. These are useful for massive concurrent access, granular security models and complicated SELECT queries that you can't necessarily predict ahead of time. You are almost never doing this kind of thing in science. The one exception would be projects like XNAT, which actually do all of those things I just described.<br /></p>
+
+<h3 class="heading">Reading and Writing</h3>
+
+
+
+
+
+
+
+
+<h5 class="heading">Zotero</h5>
+
+
+
+
+
+
+<h5 class="heading">BibTeX</h5>
+
+
+
+
+
+
+<h5 class="heading">LaTeXit (installed by MacTeX)</h5>
+
+
+
+
+
+
+<h5 class="heading">OmniGraffle</h5>
+
+
+
+
+
+
+<h5 class="heading">Vim</h5>
+
+
+
+
+
+
+<h5 class="heading">iWork</h5>
+
+
+
+
+<h3 class="heading">Productivity and Project Management</h3>
+
+
+
+
+
+
+
+
+<h5 class="heading">Getting Things Done</h5>
+
+
+
+
+
+
+<h5 class="heading">ToodleDo</h5>
+
+
+
+
+
+
+<h5 class="heading">Vim</h5>
+
+
+
+
+<h3 class="heading">Other Stuff nice on OSX</h3>
+
+
+
+
+
+<dl class="dl" compact="compact">
+<dt>MacTeX </dt>
+  <dd>Also installs ghostscript and imagemagick</dd>
+<dt>command line</dt>
+  <dd>macports will install lots of useful stuff, but homebrew seems like a more modern, pragmatic system</dd>
+<dt>Quicktime components</dt>
+  <dd>Flip4Mac (for WMV) and Perian (almost everything else) will let you play and even manipulate many other codecs</dd>
+</dl>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

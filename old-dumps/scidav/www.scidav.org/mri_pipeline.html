@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Dav Clark's Current MRI Analysis Pipeline</title>
+  <base href="http://scidav.org:8080/www.scidav.org/mri_pipeline" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/mri_pipeline">Dav Clark's Current MRI Analysis Pipeline</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Dav Clark's Current MRI Analysis Pipeline</h2>
+<p class="lead">Updated November 24, 2009<br /></p>
+<p class="p">The current approach is to get up through the first level analyses in FSL using the <a href="http://nipy.sourceforge.net/nipype/" target="_self">nipype system</a>. If you are a bad programmer, you might have a look at <a href="http://nipy.sourceforge.net/nipype/users/pipeline_tutorial.html" target="_self">Satra's FSL tutorial</a> (note, as of this writing, the newer docs have yet to make their way there - so have a look at the SPM tutorial if FSL isn't covered there). If you are a mediocre or better programmer, or otherwise would like to see one of my actual pipelines, please contact me!<br /></p>
+<p class="p">After getting the first-level analyses done, it is straightforward to use the Feat GUI to run a set of contrasts across an arbitrary number of first-level fits, and this process is relatively fast. Also, if you load up new first-level directories (or even load from an existing design.fsf), the Feat GUI will remember the contrasts you entered for the previous batch.</p>
+<p class="p">Higher level analyses are relatively straightforward to do from there - I do a single group average (using fixed effects) across the scans for a given subject. Then, I do a FLAME 1 average across each contrast separately.</p>
+<p class="p">Unlike running contrasts, the Feat GUI will not batch higher-level analyses. So, I usually save all of the analyses I'd like to do to disk, and then run a semicolon separated set of commands like so:</p>
+
+<pre class="pre">feat subj1.fsf; feat subj2.fsf; etc.
+</pre>
+
+                                         
+
+<h3 class="heading">Some notes regarding system resources</h3>
+
+
+
+
+
+<p class="p">You probably should have a little over 3GB and a free CPU core per first-level analysis that will be run in parallel. In some cases, your processes may compete for disk IO as well, which could slow things down, so that's another thing to look at. Unfortunately, when FSL runs out of memory, it just dies. Fortunately, if you are using nipype, you will pick up right where you left off - so you shouldn't lose <em>too</em> much.<br /><br /></p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

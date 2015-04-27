@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Installing VisionEgg was Hard!</title>
+  <base href="http://scidav.org:8080/www.scidav.org/installs/visionegg" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs">How to Install Software for Science</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs/visionegg">Installing VisionEgg was Hard!</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Installing VisionEgg was Hard!</h2>
+<p class="p">But now, it's only a little challenging. Try it and see! Be sure to read the appropriate &quot;First Steps&quot; for your system, then continue on to &quot;Actually Installing VisionEgg&quot; below that. There are some other notes at the end as well. Note that you <em>will </em>need a C compiler to install VisionEgg, described in <a href="http://scidav.org:8080/www.scidav.org/installs/development" target="_self">Setup for Developing / Building</a>. <br /></p>
+<p class="annotation">In the text on this page, I've set links to open up new windows.
+Normally, I don't like this kind of thing, but in this case I think
+it's useful - as you can keep these instructions open while you
+download and install things. Drop me a line if you disagree!</p>
+
+<h3 class="heading">First Steps for a Mac</h3>
+
+
+
+
+
+<p class="p">The most fundamental thing is your python installation:</p>
+<dl class="dl" compact="compact">
+<dt>Enthought Python Distribution </dt>
+  <dd>Download from <a href="http://www.enthought.com/products/epd.php" target="_blank">http://www.enthought.com/products/epd.php</a>. You can just let it install the defaults - this will fix your PATH among other things.  If you'd rather handle that yourself, be sure to do a custom install (if you don't know what &quot;PATH&quot; is, do the default!).</dd>
+</dl>
+<p class="p">Now, we are a little sneaky.  Pygame only wants to install to a python.org style install of python 2.X. EPD makes a version based on the EPD version, <em>not</em> the python version. So, we make a symlink by typing the following into a command-line prompt (like in Terminal.app):</p>
+
+<pre class="pre">cd /Library/Frameworks/Python.framework/Versions
+sudo ln -s 6.0.0 2.6</pre>
+
+                                         
+<p class="p">Of course, you should replace &quot;6.0.0&quot; with whatever your EPD version is, and if your EPD contains a newer python (e.g. 2.7), use that as the second argument. 2.6 is working pretty well as of February 2010. Unless you have a reason to delete it, leave that link there.  It'll make other installers work too!</p>
+
+<h3 class="heading"></h3>
+
+
+
+
+
+<p class="p">Now, you can run the installer from <a href="http://pygame.org/download.shtml" target="_blank">http://pygame.org/download.shtml</a>, and be sure to get the appropriate version for your python. (You likely want the one for python 2.6, and pygame versions 1.7 through 1.9 seem to work fine. 1.9 has some nice new features that some others in my lab seem to like.)</p>
+
+<h3 class="heading">First Steps for Ubuntu (and probably Debian, etc.)</h3>
+
+
+
+
+
+
+<h3 class="heading"> </h3>
+
+
+
+
+
+<p class="p">First, you are running Ubuntu, you absolutely need to understand package management. The two best solutions are <a href="https://help.ubuntu.com/community/AptitudeSurvivalGuide" target="_blank">aptitude</a> on the command line and <a href="https://help.ubuntu.com/community/SynapticHowto" target="_blank">synaptic</a> for a graphical interface. I imagine the Kubuntu guys have their own thing that isn't as well-supported, but if that's your thing, you probably already know about it. <br /></p>
+<p class="p">Assuming you have learned the basics of package management described above, you can easily install the following packages and you're done:</p>
+<ul class="disc">
+<li>python-pygame</li>
+<li>python-opengl</li>
+<li>libgl1-mesa-dev</li>
+</ul>
+<p class="p">If you followed the general <a href="http://www.scidav.org/installs/python" target="_blank">instructions for installing Python packages</a>, you've already installed these, but you'll also need the python development headers, etc. as well as setuptools:</p>
+<ul class="disc">
+<li>python-dev</li>
+<li>python-setuptools</li>
+</ul>
+<p class="p">You may, however, want to install non-standard versions of these things. In particular, some older versions of Ubuntu ship a beta version of PyGame which is incompatible with VisionEgg. You may also need to download the appropriate version of pyopengl for visionegg.<br /></p>
+
+
+
+<h5 class="heading">Dependencies for Building PyGame</h5>
+
+
+
+<p class="p">You'll also need the &quot;development&quot; versions of the SDL libraries. When I wrote this, the ones I had to install were:<br /></p>
+<ul class="disc">
+<li>libsdl1.2-dev</li>
+<li>libsdl-image1.2-dev</li>
+<li>libsdl-mixer1.2-dev</li>
+<li>libsdl-ttf2.0-dev</li>
+</ul>
+<p class="p">This will install all kinds of other stuff. Don't worry about it - these files are tiny, and your package manager will actually remove those packages if you remove the libsdl stuff. Note that SDL supports fonts both via the older ttf (TrueType font) and the newer Pango libraries. PyGame likes ttf for now (as of 1.9.1), and will ignore the Pango libs.</p>
+<p class="p">The is also MIDI support via portmidi (which we don't generally need for science), but if you want that, you'll also need <br /></p>
+<ul class="disc">
+<li>libportmidi-dev</li>
+</ul>
+
+
+
+<h5 class="heading">Downloading and Building PyGame</h5>
+
+
+
+<p class="p">If you don't have the basics yet, please read the general instructions on <a href="http://scidav.org:8080/www.scidav.org/installs/python" target="_self">installing python packages from source</a>.You can get the .tar.gz file from <a href="http://pygame.org/download.shtml" target="_blank">http://pygame.org/download.shtml</a>. Since pygame has a bunch of dependencies, it IS useful to simply run the build portion of setup.py first, i.e.:<br /></p>
+
+<pre class="pre">python setup.py build
+</pre>
+
+                                         
+<p class="p">Specifically, you probably don't care about  PORTMIDI / PORTADAPT for MIDI support. Once you have a successful build, go ahead and install and test the package.<br /></p>
+
+<h3 class="heading">First Steps for Windows</h3>
+
+
+
+
+
+<p class="p">Just use the binary installers, including the one for VisionEgg. Getting a C compiler working for this is simply a pain in the butt.</p>
+
+<pre class="pre"></pre>
+
+                                         
+
+<h3 class="heading">Actually Installing VisionEgg</h3>
+
+
+
+
+
+<p class="p">Lastly, you need to install the VisionEgg from <a href="http://sourceforge.net/projects/visionegg/files/visionegg/" target="_blank">http://sourceforge.net/projects/visionegg/files/visionegg/</a>. Just download the most recent tarball and follow the general instructions on <a href="http://scidav.org:8080/www.scidav.org/installs/python" target="_self">installing python packages from source</a>.</p>
+<p class="p">You're done! Try some of those demos there in the &quot;demo&quot; directory.  People seem to like multi_stim.py.</p>
+
+<h3 class="heading">Other Stuff You Might Like</h3>
+
+
+
+
+
+
+
+<h4 class="heading">PyYaml</h4>
+
+
+
+
+<p class="p">If
+you're using my extensions to VisionEgg (which you probably
+aren't), you will need to install PyYaml as well. Just follow the
+directions at <a href="http://pyyaml.org/wiki/PyYAML" target="_blank">http://pyyaml.org/wiki/PyYAML</a>.<br /></p>
+
+
+<h4 class="heading">LabJack support</h4>
+
+
+
+
+<p class="p">You'll want to install both the binary OSX kernel driver from <a href="http://labjack.com/" target="_blank">http://labjack.com/</a>,
+as well as the LabJackPython code from GitHub (also linked from the
+LabJack site). It doesn't matter what order you install these in, as
+the python code just uses ctypes and all binding occurs at runtime. The
+kernel driver is a standard mpkg installer. You'll probably get a
+tarball from GitHub, and it will have some <em>crazy</em> long name (actually a reference to the specific Git revision), but pay no mind and just unpack it like any old tarball and follow the instructions for <a href="http://scidav.org:8080/www.scidav.org/installs/python" target="_self">installing python packages from source</a>.</p>
+<p class="p">There's
+apparently another version which uses PyUSB and a simpler kernel
+driver, but given that you need to install a kernel driver anyway, I
+don't see the point of the PyUSB solution (except as an exercise).</p>
+
+<h3 class="heading">Some final notes</h3>
+
+
+
+
+
+<p class="p">If
+you've used python with a large stack of installed libraries, you may
+notice that EPD 5.0+ is very fast (relatively, anyway).  This is
+because they are avoiding the use of python &quot;eggs.&quot; These are the
+marginally convenient packages used by <em>easy_install</em> and
+company. Sadly, while they are convenient, they require significant
+processing at startup to fix the import mechanism. We went ahead and
+installed an egg for pygame, and this was (maybe) worth it, because we
+also get the SDL libraries and so on installed at once. But generally,
+you should probably avoid them. </p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

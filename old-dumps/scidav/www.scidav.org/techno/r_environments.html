@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>R environments and argument passing</title>
+  <base href="http://scidav.org:8080/www.scidav.org/techno/r_environments" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/techno">Technology and Tools</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/techno/r_environments">R environments and argument passing</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+
+<div class="newsitem">
+
+<h2 class="heading newsitemheading">R environments and argument passing</h2>
+
+<div class="newsiteminfo">
+  <p class="p publicationdate">
+    Publication date:
+    <span class="datetime">Jul 23, 2009 6:38:44 PM</span>
+  </p>
+</div>
+
+<div class="newsitemcontent">
+<h3 class="heading">(or, My God!  It's full of LISP!)</h3>
+
+
+
+
+
+<p class="lead">    This article presupposes a reasonable knowledge of the <a href="http://www.r-project.org" target="_self">R statistical programming environment</a>. I highly recommend it, but you're not going to learn the basics here! I will, however, attempt to shed some light on some technical issues you might run into when scripting with formula objects. This would most likely be for model fitting and plotting using the excellent lattice package, but I'd be happy to hear about other applications. The only reason I'm writing about this is because I have not seen any coherent explanation of this stuff anywhere.  If you know of a better write-up somewhere, please let me know!<br /> </p>
+<p class="p">So, I've finally been driven to write something on this sciencey-blog thing I've been planning, because I just finished something that is so derned complicated that if I don't write it down now, I'm afraid I'll forget it. First off, here's a short list of functions that can melt your brain while writing R code:<br /> </p>
+
+<pre class="pre">environment
+eval / substitute
+parse / deparse
+function</pre>
+
+                                         
+<p class="p">   I know what you're thinking: &quot;<em>function</em>! I use <em>function</em> all the time!&quot; And of course I do too.  In particular, I write lots of functions for exploratory data analysis.  Let's say I have lots of data frames that I can load from different files, and I have some data pre-processing I'd like to do.  So, I write a little pre-process and plot function like this:</p>
+
+<pre class="pre">library(lattice)
+
+breakme &lt;- function(df, fo=y ~ x) {
+    # I know that first row is garbage
+    modified.df &lt;- df[-1,]
+    # I also want to compute some things here to label my data
+    modified.df$big &lt;- modified.df$y &gt; 1
+
+    xyplot(fo, modified.df, groups=modified.df$big, auto.key=T)
+}
+</pre>
+
+                                         
+<p class="p">Now, when I pass in a data frame, I get a nice little plot.  For those of you copy-pasting at home:</p>
+
+<pre class="pre">my.df &lt;- data.frame(y=c(100, 0.2, 0.3, 1.4, 1.3), x=c(1000, 1, 2, 1, 2))
+breakme(my.df)
+</pre>
+
+                                         
+<p class="p">This makes a nice little plot, coloring the larger and smaller y-values differently and avoiding that nasty big first point. But, let's say I wanted to swap my axes, like so:</p>
+
+<pre class="pre">breakme(my.df, x ~ y)
+</pre>
+
+                                         
+<p class="p">R says, &quot;<strong>Error in eval(expr, envir, enclos) : object 'modified.df' not found</strong>,&quot; and I spend many hours wrapping my head around the problem. </p>
+
+
+
+<h5 class="heading">Understanding the problem</h5>
+
+
+
+<p class="p">The first step to unravelling the mystery is actually figuring out what the heck kind of magic xyplot is doing. I'd used the seemingly magical ability to use variable names in the <em>groups</em> argument for lattice plot functions for years, but never really understood what was going on. Now, it was time. R has a nice feature where you can see the code underlying almost any function by printing it (often by simply typing the function name at the R prompt).  But when I type <em>xyplot</em> I get the relatively uninformative:</p>
+
+<pre class="pre">function (x, data, ...) 
+UseMethod(&quot;xyplot&quot;)
+&lt;environment: namespace:lattice&gt;
+</pre>
+
+                                         
+<p class="p">No problem, right? I know that x is a formula in my case, so I just type <em>xyplot.formula</em>. To this R says, &quot;<strong>Error: object 'xyplot.formula' not found</strong>.&quot; Fortunately, the internet eventually told me about non-visible methods.  So, if you type <em>methods(xyplot)</em>, you'll actually see an asterisk next to <em>xyplot.formula</em>.  You can view non-visible methods using something like: <em>getAnywhere(xyplot.formula)</em>.  Notably, right there at the top of the function definition, you see the line:</p>
+
+<pre class="pre">groups &lt;- eval(substitute(groups), data, environment(x))</pre>
+
+                                         
+<p class="p">Oh no!  It's all the R functions that melt your brain in one line all together!  What's going on here is that R function arguments are not actually fully evaluated, but rather, they contain &quot;<a href="http://cran.r-project.org/doc/manuals/R-lang.html#Promise-objects" target="_self">promises</a>.&quot; So, before the argument is used as a value, you can actually grab the symbolic expression, convert it to text or even reevaluate it in another context. It's like reaching back up the call stack with your zombie programmer hand to eat the brains of the code that called you.<br /></p>
+
+<pre class="pre"></pre>
+
+                                         
+<p class="p"> In this case, <em>xyplot</em> is reevaluating the symbol you pass in <em>groups</em> within the context of the data frame in <em>data</em> and the environment of the formula in <em>x</em>.  When I use the default formula in <em>breakme</em> above, it has the environment of the function itself and everything is fine.  But if I pass in a different formula, all of a sudden, <em>groups</em> gets evaluated in the environment where you called <em>breakme</em> from (before we created the <em>modified.df</em>).</p>
+
+
+
+<h5 class="heading">Solutions</h5>
+
+
+
+<p class="p">In this simple case, the easiest thing would just be to change the <em>groups</em> argument to the bare symbol <em>big</em>.  But in my actual application, I was passing <em>groups</em> into <em>breakme</em> as well.  There are all kinds of fancy ways you can try to extract the appropriate information from an argument to <em>breakme</em> - but in the end, none of these will work, as xyplot is always going to look one level up the call stack.  The simplest solution (IMHO) is to change the environment of <em>fo</em>.  In the end I wrote the following atually useful code:</p>
+
+<pre class="pre"># A helper function kinda like xtabs w/ tapply-like functionality
+tapply.formula &lt;- function(fo, df, func=mean) {
+    mf &lt;- model.frame(fo, df)
+    i &lt;- attr(attr(mf, 'terms'), 'response')
+    y &lt;- mf[[i]]
+    y.name &lt;- colnames(mf)[i]
+    by &lt;- mf[-i]
+
+    # This messes up our responseName, if it's not a valid symbol
+    return(as.data.frame.table(tapply(y, by, func, na.rm=TRUE), 
+                               responseName=y.name))
+}
+
+collapse.and.plot &lt;- function(fo=rt ~ hand, df, groups=NULL, 
+                              pdf.name=NULL, plotfunc=barchart, func=mean, ...) {
+    # Create a more complete formula for tapply.formula
+    fo2 &lt;- fo
+    if(mode(substitute(groups)) == 'name') {
+        # This is a little gratuitous, but keeps parity with the lattice API
+        groups.name &lt;- deparse(substitute(groups))
+        fo2 &lt;- update(fo2, paste('. ~ . + ', groups.name))
+    }
+        
+    reduced.df &lt;- tapply.formula(fo2, df, func)
+
+    pars &lt;- list(fontsize=list(text=24))
+
+    # This code is unlikely to work if you pass in anything else!
+    if(mode(substitute(groups)) == 'name') {
+        # Almost equivalent to eval(substitute(groups), reduced.df)
+        groups &lt;- reduced.df[,groups.name]
+        gray.levels &lt;- gray(seq(0.2, 0.8, along.with=levels(groups)))
+        pars$superpose.polygon &lt;- list(col=gray.levels)
+    }
+
+    # Make our plot function look in the right place and fix variable names
+    environment(fo) &lt;- environment()
+    # Some crazy stuff because of the way names get mangled by
+    # as.data.frame.table in tapply.formula
+    fo[-1] &lt;- parse(text=make.names(fo[-1]))
+
+    # Now do the actual plotting stuff
+    if(!is.null(pdf.name))
+        pdf(pdf.name)
+
+    trellis.par.set(pars)
+    print(plotfunc(fo, reduced.df, groups=groups, 
+             # ylab='RT (seconds)', 
+             auto.key=TRUE, # or e.g. list(text=c('simple', 'sequential'))
+            ...))
+             # space='inside')) - don't like how this looks!
+
+    if(!is.null(pdf.name))
+        dev.off()
+
+    return(reduced.df)
+}</pre>
+
+                                         
+
+</div>
+
+</div>
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

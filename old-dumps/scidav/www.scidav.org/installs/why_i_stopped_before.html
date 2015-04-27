@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Why I stopped using Linux before</title>
+  <base href="http://scidav.org:8080/www.scidav.org/installs/why_i_stopped_before" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs">How to Install Software for Science</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs/why_i_stopped_before">Why I stopped using Linux before</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Why I stopped using Linux before</h2>
+<p class="p">I'm trying to get my nice new ThinkPad x100e to stop making a horrible whining noise when X is running in full resolution mode.</p>
+<p class="p">The following things appear to be useful, so far:</p>
+<dl class="dl" compact="compact">
+<dt>xrandr </dt>
+  <dd> will report the various modes available, though not details. For example, it claims I'm at 60 Hz, which I'm not!</dd>
+<dt>/var/log/Xorg.0.log </dt>
+  <dd>Contains the following valuable information from the video driver (fglrx - the proprietary ATI one):</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): Supported detailed timing:</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): clock: 65.4 MHz   Image Size:  256 x 144 mm</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): h_active: 1366  h_sync: 1390  h_sync_end 1404 h_blank_end 1404 h_border: 0</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): v_active: 768  v_sync: 770  v_sync_end 774 v_blanking: 776 v_border: 0</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): Supported detailed timing:</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): clock: 54.5 MHz   Image Size:  256 x 144 mm</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): h_active: 1366  h_sync: 1390  h_sync_end 1404 h_blank_end 1404 h_border: 0</dd>
+<dt> </dt>
+  <dd>(II) fglrx(0): v_active: 768  v_sync: 770  v_sync_end 774 v_blanking: 776 v_border: 0</dd>
+<dt>xvidtune -show </dt>
+  <dd>Tells me the actual modestring:<br />&quot;1366x768&quot;     65.40   1366 1390 1404 1404    768  770  774  776 +hsync +vsync</dd>
+<dt>moninfo.exe </dt>
+  <dd>I don't have this problem in Windows 7, so I'm curious to see what my settings are there! You can get this utility <a href="http://www.entechtaiwan.com/files/moninfo.exe" target="_self">here</a>. Turns out, it suggests: Native/preferred timing.. 1366x768p at 60Hz (16:9), Modeline............... &quot;1366x768&quot; 65.400 1366 1390 1404 1404 768 770 774 776 -hsync -vsync</dd>
+<dt> </dt>
+  <dd> </dd>
+<dt> </dt>
+  <dd> </dd>
+</dl>
+<dl class="dl" compact="compact">
+<dt></dt>
+  <dd> </dd>
+</dl>
+<ul class="disc">
+</ul>
+<p class="p">Paul Ivanov had some helpful things to say, but in the end, there was simply nothing for it. So, now I'm using either the radeon or radeonhd drivers, though they seem perhaps a touch less stable... ah well!</p>
+<p class="p">It's important to note that ubuntu won't use the radeonhd drivers unless you create an <strong>xorg.conf</strong> file in <strong>/etc/X11</strong>. You need to put something like the following in:</p>
+
+<pre class="pre">Section &quot;Device&quot;
+    Identifier &quot;Default Device&quot; # Not _sure_ you need this
+    Driver &quot;radeonhd&quot;
+EndSection</pre>
+
+                                         
+
+<pre class="pre">Section &quot;Screen&quot;
+        Identifier      &quot;Configured Screen Device&quot;
+        Device  &quot;Configured Video Device&quot;
+        SubSection &quot;Display&quot;
+                Virtual 2048 2048
+        EndSubSection
+EndSection
+
+Section &quot;Device&quot;
+        Identifier      &quot;Configured Video Device&quot;
+EndSection</pre>
+
+                                         
+<p class="p">There's also other stuff that got put in there by GNOME trying to get full resolution multi-monitors set up. GNOME still can't hack that, but then KDE could... so I'm not sure if the GNOME stuff did anything. It looks like this (note that I'd commented out the radeonhd driver bit at this point):</p>
+
+<h3 class="heading">Booting Lenovo Rescue and Recovery</h3>
+
+
+
+
+
+<p class="p">Sadly, installing grub2 disables the fancy F11 boot into the rescue and recovery partition. I don't know why grub doesn't pick it up automatically in lucid like it does the other partitions, but the trick is to insert something like the following into <strong>/etc/grub.d/40_custom</strong>:</p>
+
+<pre class="pre">menuentry &quot;Lenovo Rescue n' Recovery&quot; {
+    set root=(hd0,3)
+    chainloader +1
+}
+</pre>
+
+                                         
+<p class="p">And then run <strong>sudo grub-update</strong></p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

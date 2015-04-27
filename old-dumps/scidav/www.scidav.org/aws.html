@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Hacking on Amazon Web Services</title>
+  <base href="http://scidav.org:8080/www.scidav.org/aws" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/aws">Hacking on Amazon Web Services</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Hacking on Amazon Web Services</h2>
+<p class="p">So, you shouldn't probably use the intrepid images at this point, you should use koala. But, if you're already running intrepid (like me), you may run into this <a href="https://bugs.launchpad.net/ubuntu/+source/xorg/+bug/300935" target="_self">stupid problem</a>. If you're using EC2 for temporary workstation / servers, you're probably using freenx. Freenx will mostly work, but will break some random things, including tcl.</p>
+<p class="p">It is absolutely critical that you unmount Elastic Block Store volumes before terminating an instance. Otherwise, your data will likely be borked.</p>
+<p class="p">An unresolved issue currently - each time I start a new instance from an image with freenx-server, I need to do dpkg-reconfigure freenx-server. Otherwise, it works fine (at least with KDE, which is what I'm using - perhaps foolishly). <br /></p>
+<p class="p">You'll almost certainly want to check out the <a href="http://docs.amazonwebservices.com/AWSEC2/latest/DeveloperGuide/" target="_self">developer's guide</a>.<br /></p>
+<p class="p">It looks like the new EBS-backed instances are the way to go, but for now, I use a command like the following to make an AMI from a running machine that I've configured the way I want it:</p>
+
+<pre class="pre">ec2-bundle-vol -k &lt;private_keyfile&gt; -c &lt;certificate_file&gt; -u &lt;user_id&gt; -p &lt;image_name&gt;
+ec2-upload-bundle -b &lt;bucket&gt; -m image.manifest.xml -a &lt;access_key&gt; -s &lt;secret_key&gt;
+</pre>
+
+                                         
+<p class="p">The user_id you can get from &quot;Your Account -&gt; Security Credentials&quot; on the Amazon EC2 website (near the upper right, remove the dashes). The access and secret keys are lower down there as well.</p>
+<p class="p">You can then easily register your instance using ElasticFox or the AWS console or the <em>ec2-register</em> tool.<br /></p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

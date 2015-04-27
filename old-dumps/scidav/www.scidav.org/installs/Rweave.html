@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Getting Rweave (aka Sweave) working real nice-like</title>
+  <base href="http://scidav.org:8080/www.scidav.org/installs/Rweave" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs">How to Install Software for Science</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs/Rweave">Getting Rweave (aka Sweave) working real nice-like</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Getting Rweave (aka Sweave) working real nice-like</h2>
+<p class="p"> For my dollar, Rweave is about the best way to do the computational part of science. It's all there, you can do anything, and anyone can see EXACTLY what you did to do it. Unfortunately, it's a pain. For now, here are some telegraphic notes to help guide setting things up (at least on OS X):</p>
+<ol class="decimal">
+<li>Put a symbolic link like so `ln /Library/Frameworks/R.Framework/Versions/Current/Resources/share/texmf ~/Library/texmf/tex/latex/Sweave`. You'll need to make the intermediate directories in our ~/Library folder as well. This may not be necessary, e.g. if you use the Sweave.sh script out there.</li>
+<li>Put the line \SweaveOpts{condordance=TRUE} at the beginning of your document body - NOT in the header!</li>
+<li>Put the line \synctex=1 in your document header (I like this better than a command line option, but you could do it that way too).</li>
+<li>You may need to do some of this kind of <a href="http://cameron.bracken.bz/synctex-with-sweavepgfsweave-in-texshoptexworks" target="_blank">funny stuff</a>. Sadly, patchDVI doesn't seem to download for the most recent version of R (2.13.0). I am now able to install the package using the &quot;install.packages&quot; command given on the <a href="https://r-forge.r-project.org/R/?group_id=233" target="_blank">R-forge page</a>. If that doesn't work, we can use the SVN. The commands below will install the most recent version if you have developer tools (i.e., Xcode or some other OS X compiler suite) and subversion installed (recent OS X includes this, maybe with developer tools).</li>
+</ol>
+
+<pre class="pre">svn checkout svn://svn.r-forge.r-project.org/svnroot/sweavesearch/pkg/patchDVI
+R CMD INSTALL patchDVI
+</pre>
+
+                                         
+<p class="p">In addition, you may want to set up an Sweave engine if 
+you're using TeXShop (TeXShop will use the SyncTeX file to help you navigate between the .Rnw and .pdf files). If you're using some other editor on a mac, you'll
+ definitely want Skim (which supports SyncTeX, Preview doesn't). In MacVim, LaTeX-box mode allows you to open up Skim, and Skim can open MacVim. You'll need to change some commands around on MacVim though, as LaTex-Box doesn't load for .Rnw files, and the R-vim command \l will override any use of \l* for latex stuff (I think - let me know if I'm wrong!).<br /> <br /></p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Installing Python Packages</title>
+  <base href="http://scidav.org:8080/www.scidav.org/installs/python" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs">How to Install Software for Science</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/installs/python">Installing Python Packages</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+<h2 class="heading">Installing Python Packages</h2>
+<p class="p">First, make sure you're set up for development, including compilers you may need for your particular package (note - &quot;pure python&quot; packages won't generally need any of the stuff described on that page).<br /></p>
+
+<h3 class="heading">From Source</h3>
+
+
+
+
+
+<p class="p">First a general note about &quot;easy_install.&quot; Easy install will make the act of installation go a little faster. But then, for the rest of the life of that package, EVEN IF YOU'RE NOT USING IT, it will slow down your python interpreter startup EVERY TIME by just a little bit. If you install a lot of packages, this is very annoying. So, I recommend downloading and installing from source at all times for &quot;serious&quot; long-term use.<br /></p>
+
+
+<h4 class="heading">On Unix Systems (including OSX)</h4>
+
+
+
+
+<p class="p">For this part of our little adventure, you should understand <strong>tar</strong>,  <strong>cd</strong> and <strong>sudo</strong> at a minimum (though you can use something like &quot;Archive Manager&quot; instead of<strong> tar</strong>
+if you'd rather go graphical). You'll also want a basic conception of
+working directories and files. In order to learn about the commands
+above, you can use <strong>man</strong>. And, happily, to learn about <strong>man</strong>, you can <em>also</em> use <strong>man</strong>: just type <strong>man man</strong> in a terminal.</p>
+<p class="p">You may need to install the python development libraries and setuptools. On Ubuntu (and perhaps Debian) systems, these are <strong>python-dev</strong> and <strong>python-setuptools</strong>. These are bundled with EPD and the system installed python on OSX. For a &quot;python.org&quot; install, you'll need to install setuptools.<br /></p>
+
+
+
+<h5 class="heading">Download, Unarchive and Enter the Newly Created Source Directory</h5>
+
+
+
+<p class="p">Now,
+simply download and unarchive the .tar.gz or .tar.gz file for the package you want to install (it will probably be available from a link called &quot;Source&quot; or &quot;Download&quot; if not immediately apparent). Then, change into the directory you've just
+created. <br /></p>
+
+
+
+<h5 class="heading">Optionally &quot;build&quot; the Package Prior to &quot;install&quot;</h5>
+
+
+
+<p class="p">In the packages source directory, execute the following:</p>
+
+<pre class="pre">python setup.py build
+</pre>
+
+                                         
+<p class="p">This
+will check your dependencies and either stop or fail if they're not all found. If an installer asks to continue when it sounds like you probably shouldn't, tell it Not to conitnue and try to figure out what you still need to install. If the build stage complains about something you know you don't care about, don't worry and just tell it to continue!</p>
+
+
+
+<h5 class="heading">Run the &quot;install&quot; Command</h5>
+
+
+
+<p class="p">Once that's done, you should install the thing, for which you'll need root permissions:</p>
+
+<pre class="pre">sudo python setup.py install
+</pre>
+
+                                         
+
+
+
+<h5 class="heading">Test the installed package</h5>
+
+
+
+<p class="p">And, if you want to be extra sure everything's OK, you can often do the following:</p>
+
+<pre class="pre">python setup.py test</pre>
+
+                                         
+<p class="p">But, that's not always supported.</p>
+
+
+
+<h5 class="heading">PyObjC</h5>
+
+
+
+<p class="p">I've had heaps of trouble with the python-objective C bridge. The above method is too complicated for my little mind, probably yours too. For now, the following incantation seems to work (not sure if the MACOSX_DEPLOYMENT_TARGET bit is necessary, and obviously it should be set to your OS X version!):<br /></p>
+
+<pre class="pre">export MACOSX_DEPLOYMENT_TARGET=10.6
+easy_install pyobjc-core pyobjc
+</pre>
+
+                                         
+
+
+<h4 class="heading">On Windows</h4>
+
+
+
+
+<p class="p">Hopefully there's a binary installer. Windows doesn't have a straightforward path (yet) to set up a C compiler<br /><br /> </p>
+
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>

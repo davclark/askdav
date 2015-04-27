@@ -1,0 +1,19 @@
+/* _________ Stylesheet for Silva 2.1 printing _________________
+** _________ Silva users can adjust their own print styles _______________
+**
+**  Instructions to set caching headers. Inside comments area to play nicer with CSS editors.
+** ** 
+** 
+** 
+** 
+** */
+
+body {
+  font-size: 9pt;
+}
+
+p.annotation, p.author, p.source {
+  font-size: 7pt;
+}
+
+* end feed */

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Silva 2.1 -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>Persistence of Bash</title>
+  <base href="http://scidav.org:8080/www.scidav.org/techno/persistence_of_bash" />
+  <!-- Begin metatags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Silva" />
+
+  
+  <!-- End metatags -->
+  <!-- Start related links -->
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/favicon.ico" />
+  <link rel="shortcut icon"
+        href="http://scidav.org:8080/www.scidav.org/globals/frontend.png" />
+
+  <!-- End related links -->
+  <!-- Begin stylesheets -->
+  <link rel="stylesheet" type="text/css" media="all"
+        href="http://scidav.org:8080/www.scidav.org/frontend.css" />
+  <link rel="stylesheet" type="text/css" media="print"
+        href="http://scidav.org:8080/www.scidav.org/print.css" />
+  
+  <!-- End stylesheets -->
+  <!-- Injector for content-specific css/js inclusion -->
+  
+
+
+  <!-- Start javascript -->
+  
+  <!-- End javascript -->
+</head>
+
+<body>
+
+
+<!-- Start header slot -->
+<div class="header">
+  <a class="icon"
+     href="http://www.infrae.com/products/silva"
+     title="Silva info on the Infrae site: alt-i"
+     accesskey="i">
+    <img src="http://scidav.org:8080/www.scidav.org/globals/silva_32.png"
+         width="32" height="32" border="0" alt="Silva" />
+  </a>
+  
+  <!-- Begin top_navigation slot -->
+  <span class="breadcrumb" style="display:block;">
+     
+      <a href="http://scidav.org:8080/www.scidav.org">SciDAV: Not really an acronym</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/techno">Technology and Tools</a>
+    &middot;
+     
+      <a href="http://scidav.org:8080/www.scidav.org/techno/persistence_of_bash">Persistence of Bash</a>
+    
+  </span>
+  <!-- End top_navigation slot -->
+  
+</div>
+<!-- End header slot -->
+
+
+
+<!-- Table of contents slot -->
+
+
+<div class="public">
+
+
+<!-- Start Silva content -->
+
+<div class="newsitem">
+
+<h2 class="heading newsitemheading">Persistence of Bash</h2>
+
+<div class="newsiteminfo">
+  <p class="p publicationdate">
+    Publication date:
+    <span class="datetime">Feb 19, 2013 8:37:44 AM</span>
+  </p>
+</div>
+
+<div class="newsitemcontent"><p class="p">So, I'm living in the Cloud now. You can read more about that on <a href="http://po.kuraraku.com" target="_self">my newer joint personal blog with my wife</a>. But that's not why you're here. You're here to solve problems. The current problem is that, much to my surprise, internet is spotty when you actually <em>live</em> in the cloud. So, what do you do?</p>
+
+<pre class="pre">while ! &lt;command&gt;
+do :
+done</pre>
+
+                                         
+<p class="p">And you're done! Bash will just keep executing that thing until it returns 0. That last bit is somewhat confusing, but that's the convention developed by K&amp;R back when they invented C at AT&amp;T. A program returns 0 on success. I use it with things like a git push or pull, or rsync. You could also write a bash function to make that a bit tidier, but I find it keeps my bash skills fresher to just type such things out.</p>
+<p class="p">'Til next time!</p>
+
+</div>
+
+</div>
+
+<!-- End Silva content -->
+
+</div>
+
+
+<!-- Footer slot -->
+
+
+</body>
+</html>
