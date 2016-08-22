@@ -1,3 +1,16 @@
+Starting to talk about Feldenkrais
+----------------------------------
+
+A CS professor wrote some stuff:
+
+- http://www.cs.princeton.edu/~arora/feldenkrais.html
+- http://www.cs.princeton.edu/~arora/RSI.html
+
+There are also some articles that I should refer to:
+
+- Maybe: http://link.springer.com/article/10.1007/s11097-016-9469-8
+- http://journal.frontiersin.org/article/10.3389/fpsyg.2014.01424/full
+
 Movies for conversations
 ------------------------
 
@@ -15,7 +28,6 @@ Books for serious contemplation
 -------------------------------
 
 Wind up bird Chronicle for another view on WWII from the Japanese perspective
-
 
 Home audio recording
 --------------------
